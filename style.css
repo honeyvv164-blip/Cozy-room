@@ -216,24 +216,22 @@ transform:rotate(2deg);
 
 }
 
-.sofa{
-
-    font-size:70px;
-
-    margin:30px 0;
-
+.sofa img,
+.sofa-img{
+    width: 280px;
+    max-width: 90%;
+    height: auto;
+    display: block;
+    margin: 20px auto;
 }
 
-.cocoa{
-
-    position:relative;
-
-    font-size:60px;
-
-    margin-bottom:25px;
-
+.cocoa img,
+.cocoa-img{
+    width: 90px;
+    height: auto;
+    display: block;
+    margin: 20px auto;
 }
-
 /* ---------- Steam ---------- */
 
 .steam{
