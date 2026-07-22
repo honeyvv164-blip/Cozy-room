@@ -1,7 +1,3 @@
-// ==========================
-// Rainy Day
-// ==========================
-
 const intro = document.getElementById("intro");
 const house = document.getElementById("house");
 const living = document.getElementById("living");
@@ -14,10 +10,7 @@ const hugBtn = document.getElementById("hugBtn");
 
 function showScene(current, next) {
     current.classList.remove("active");
-
-    setTimeout(() => {
-        next.classList.add("active");
-    }, 500);
+    next.classList.add("active");
 }
 
 enterBtn.addEventListener("click", () => {
@@ -33,90 +26,28 @@ finishBtn.addEventListener("click", () => {
 });
 
 hugBtn.addEventListener("click", () => {
-
     hugBtn.innerHTML = "🤍 ได้รับกอดเรียบร้อยแล้ว";
-
     hugBtn.disabled = true;
 
-    createHearts();
-
-});
-
-
-// ==========================
-// Heart Animation
-// ==========================
-
-function createHearts(){
-
-    for(let i=0;i<25;i++){
-
-        const heart=document.createElement("div");
-
-        heart.innerHTML="🤍";
-
-        heart.className="heart";
-
-        heart.style.left=Math.random()*100+"vw";
-
-        heart.style.animationDuration=
-        2+Math.random()*2+"s";
+    for (let i = 0; i < 20; i++) {
+        const heart = document.createElement("div");
+        heart.innerHTML = "🤍";
+        heart.style.position = "fixed";
+        heart.style.left = Math.random() * 100 + "vw";
+        heart.style.top = "100vh";
+        heart.style.fontSize = 20 + Math.random() * 20 + "px";
+        heart.style.transition = "all 3s linear";
+        heart.style.pointerEvents = "none";
 
         document.body.appendChild(heart);
 
-        setTimeout(()=>{
+        setTimeout(() => {
+            heart.style.transform = "translateY(-110vh)";
+            heart.style.opacity = "0";
+        }, 50);
+
+        setTimeout(() => {
             heart.remove();
-        },4000);
-
+        }, 3200);
     }
-
-}
-/* ===========================
-   Hearts
-=========================== */
-
-.heart{
-
-position:fixed;
-
-bottom:-30px;
-
-font-size:24px;
-
-pointer-events:none;
-
-animation:floatUp linear forwards;
-
-z-index:999;
-
-}
-
-@keyframes floatUp{
-
-0%{
-
-transform:
-translateY(0)
-scale(.7);
-
-opacity:0;
-
-}
-
-20%{
-
-opacity:1;
-
-}
-
-100%{
-
-transform:
-translateY(-110vh)
-scale(1.5);
-
-opacity:0;
-
-}
-
-}
+});
